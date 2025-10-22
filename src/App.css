@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn-home {
+  margin: 16px 8px 8px 8px;
+  position: relative;
+  left: 90%;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.custom-form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #ffffff;
+  padding: 30px 30px 10px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filed-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.filed-label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.filed-input {
+  width: 100%;
+}
+
+.email-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 50px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.email-title {
+  color: #4caf50;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.email-title.error {
+  color: #e53935;
+}
+
+.email-divider {
+  margin-top: 30px;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.email-link.error {
+  color: #e53935;
+}
+
+.btn-add-item {
+  margin: 16px 8px 8px 8px;
+  position: relative;
+  left: 75%;
+}
+
+.title-home {
+  text-align: center;
+  margin: 18px 0px 25px 0px;
+  color: white;
+}
+
+.card-body-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-text-grow {
+  flex-grow: 1;
+}
