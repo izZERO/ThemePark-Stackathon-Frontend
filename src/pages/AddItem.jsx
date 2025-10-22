@@ -83,7 +83,6 @@ const AddItem = () => {
               value={formState.description}
               autoComplete="description"
             />
-            <Form.Text className="text-muted">If available</Form.Text>
           </Form.Group>
           <Form.Group className="filed-form" controlId="lastSeen">
             <Form.Label className="filed-label">Last Seen</Form.Label>
@@ -91,12 +90,11 @@ const AddItem = () => {
               className="filed-input"
               name="lastSeen"
               type="text"
-              placeholder="Approximate place item was lost"
+              placeholder="Approximate place where item was lost"
               onChange={handleChange}
               value={formState.lastSeen}
               autoComplete="off"
             />
-            <Form.Text className="text-muted">If available</Form.Text>
           </Form.Group>
           <Form.Group className="filed-form" controlId="owner">
             <Form.Label className="filed-label">Owner Name</Form.Label>

@@ -10,17 +10,18 @@ const Home = () => {
   let navigate = useNavigate()
   const [items, setItems] = useState([])
 
-  useEffect(() => {
-    const handleItems = async () => {
-      const data = await GetItems()
-      setItems(data)
-    }
+  const handleItems = async () => {
+    const data = await GetItems()
+    setItems(data)
+  }
 
+  useEffect(() => {
     handleItems()
   }, [])
 
   const updateStatus = async (id) => {
     await Recovered(id)
+    await handleItems()
   }
 
   return (
@@ -39,38 +40,50 @@ const Home = () => {
             .filter((item) => item.status !== "Recovered")
             .map((item) => (
               <Col key={item._id} xs={12} sm={6} md={4} lg={3}>
-                <Card style={{ width: "18rem", position: "relative" }}>
-                  <div style={{ position: "relative" }}>
+                <Card className="border-0 shadow-sm rounded-3  mb-4 card-hover">
+                  <div className="position-relative">
                     <Card.Img
                       variant="top"
                       src={`${BASE_URL}/${item.image}`}
                       alt="This image for item"
                       style={{ height: "10rem", objectFit: "cover" }}
                     />
-                    <Card.ImgOverlay className="img-overlay-custom">
-                      <Card.Title>{item.name}</Card.Title>
-                      <Badge bg="warning" text="dark" className="status-badge">
-                        {item.status}
-                      </Badge>
-                    </Card.ImgOverlay>
+                    <div className="position-absolute top-0 start-0 m-3 bg-dark bg-opacity-75 rounded px-3 py-2">
+                      <Card.Title className="text-white fw-bold mb-0 small">
+                        {item.name}
+                      </Card.Title>
+                    </div>
+                    <Badge
+                      bg={item.status === "Lost" ? "danger" : "success"}
+                      text={item.status === "Lost" ? "dark" : "white"}
+                      className="position-absolute top-0 end-0 m-3"
+                    >
+                      {item.status}
+                    </Badge>
                   </div>
 
-                  <Card.Body className="card-body-flex">
-                    <div className="card-text-grow">
-                      <Card.Text className="text-dark">
+                  <Card.Body className="d-flex flex-column">
+                    <div className="flex-grow-1">
+                      <Card.Text className="d-flex align-items-center mb-3">
+                        <i className="bi bi-info-circle me-2 text-info"></i>
                         {item.description}
                       </Card.Text>
-                      <Card.Text className="text-secondary">
+                      <Card.Text className="text-muted d-flex align-items-center mb-3 fst-italic">
+                        <i className="bi bi-geo-alt me-2 text-success"></i>
                         {item.lastSeen}
                       </Card.Text>
                     </div>
-                    <Card.Text className="text-danger">{item.owner}</Card.Text>
+                    <Card.Text className="text-primary d-flex align-items-center fw-semibold">
+                      <i className="bi bi-person me-2 text-primary"></i>
+                      {item.owner}
+                    </Card.Text>
                     {item.status === "Lost" && (
                       <Button
                         variant="primary"
-                        type="submit"
                         onClick={() => updateStatus(item._id)}
+                        className="mt-3 card-hover"
                       >
+                        <i className="bi bi-check-circle me-2"></i>
                         Found
                       </Button>
                     )}

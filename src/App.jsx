@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router"
 
 import Home from "./pages/Home"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap-icons/font/bootstrap-icons.css"
 import AddItem from "./pages/AddItem"
 import Recovered from "./pages/Recovered"
 import "./App.css"
