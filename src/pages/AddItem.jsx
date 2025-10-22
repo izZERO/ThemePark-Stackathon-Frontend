@@ -58,8 +58,9 @@ const AddItem = () => {
 
       <div className="form-wrapper">
         <Form onSubmit={handleSubmit} className="custom-form">
+          <h1 className="title-form">Add a Lost Item</h1>
           <Form.Group className="filed-form" controlId="name">
-            <Form.Label className="filed-label">Name</Form.Label>
+            <Form.Label className="filed-label">Item Name</Form.Label>
             <Form.Control
               className="filed-input"
               name="name"
@@ -134,7 +135,7 @@ const AddItem = () => {
             <Form.Text className="text-muted">If available</Form.Text>
           </Form.Group>
           <Button
-            disabled={!formState.email && !formState.name && !formState.owner}
+            disabled={!formState.email || !formState.name || !formState.owner}
             variant="primary"
             type="submit"
           >

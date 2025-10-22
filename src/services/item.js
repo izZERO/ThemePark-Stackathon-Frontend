@@ -19,3 +19,12 @@ export const GetItems = async () => {
     throw error
   }
 }
+
+export const Recovered = async (id) => {
+  try {
+    const res = await Client.put(`/${id}`)
+    return res
+  } catch (error) {
+    throw error
+  }
+}
